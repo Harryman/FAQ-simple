@@ -1,0 +1,23 @@
+<template name="FaqItem">
+<div>
+		<form action="" role="form">
+			<div class="form-group">
+				<label for="question">Question</label><input type="text" id="question" value="{{question}}" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="answer">Answer</label><textarea name="answer" id="answer" cols="200" rows="10">{{answer}}</textarea>
+			</div>
+			<div class="form-group">
+				<label for="tags">Tags(seperate with comma)</label><input type="text" id="tags" value="{{tags}}" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="pn">Part Numbers(seperate with comma)</label><input type="text" value="{{pn}}" id="pn" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="review">Requires Review &nbsp; </label><input name="review" id="review"  type="checkbox" {{needsReview}} />
+			</div>
+		</form>
+		<button class="btn btn-success" id="save">Save</button>
+		<button class="btn btn-danger" id="delete">Delete</button>
+</div>
+</template>

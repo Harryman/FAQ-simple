@@ -1,0 +1,37 @@
+<template name="FaqIndex">
+<div class="panel panel-default">
+	<div class="panel-heading">
+	<ul class="nav nav-pills">
+	<li>
+		<a href="{{pathFor 'faq.index'}}">
+			<h3>FAQs:{{Count}}
+			</h3>
+		</a>
+	</li>
+	<li>
+		<a href="{{pathFor 'needs.review'}}">
+			<h3>Review needed:{{needsReviewCount}}</h3>
+		</a>
+		</li>
+		</ul>
+		</div>
+	<table class="table">
+		<th>Question</th>
+		<th>tags</th>
+	  {{#each Questions}}
+  		<tr id="{{needsLookingAtClass}}">
+			<td class="link"><a href="{{pathFor 'faq.item' params=this}}"><div class="qs">{{question}}</div></a></td>
+				<td>
+					{{#each tags}}
+					<a href="/t/{{this}}">
+						<div class="tag">
+							{{this}}
+						</div>
+					</a>
+					{{/each}}
+				</td>
+			</tr>
+	  {{/each}}
+	  </table>
+</div>
+</template>
