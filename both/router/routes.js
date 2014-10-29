@@ -29,8 +29,7 @@ Router.map(function(){
     template:'FaqIndex'
   });
   this.route('/s/:search', {
-    name: 'faq.search',
-    template:'FaqIndex'
+    name: 'faq.search'
   });
 });
 

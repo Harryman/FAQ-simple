@@ -1,22 +1,27 @@
 /*****************************************************************************/
-/* FaqSearch: Event Handlers and Helpersss .js*/
+/* FaqSearch: Event Handlers and Helpers */
 /*****************************************************************************/
 Template.FaqSearch.events({
-  /*
-   * Example:
-   *  'click .selector': function (e, tmpl) {
-   *
-   *  }
-   */
+
 });
 
 Template.FaqSearch.helpers({
-  /*
-   * Example:
-   *  items: function () {
-   *    return Items.find();
-   *  }
-   */
+  Questions: function (){
+    return Faq.find();
+  },
+  Count: function(){
+    return Faq.find({$nor:[{question:""},{question:undefined}]}).count();
+  },
+  needsReviewCount: function(){
+    return Faq.find({$or:[{needsReview:true},{answer:""}]}).count();
+  },
+  needsLookingAtClass: function(){
+    if(this.needsReview || this.answer == ""){
+      return 'needsReview';
+    }
+    return;
+  }
+
 });
 
 /*****************************************************************************/
